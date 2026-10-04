@@ -52,7 +52,7 @@ class VFS:
             {"path": "/home/user/welcome.txt", "type": "file", "content": welcome_b64},
             {"path": "/var", "type": "dir", "content": ""},
             {"path": "/var/log", "type": "dir", "content": ""},
-            {"path": "/var/log/system.log", "type": "file", "content": log_b64},,
+            {"path": "/var/log/system.log", "type": "file", "content": log_b64},
         ]
         with open(self.csv_path, mode="w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=["path", "type", "content"])
