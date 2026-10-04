@@ -41,24 +41,18 @@ class VFS:
 
     def create_default_csv(self):
         """Создает дефолтный CSV-файл с начальной структурой (3 уровня файлов/папок)."""
+
+        welcome_b64 = base64.b64encode(b"Welcome to VFS!").decode("utf-8")
+        log_b64 = base64.b64encode(b"System log initialized").decode("utf-8")
+        
         default_data = [
-            {"path": "/", "type": "dir", "content": ""},
+         {"path": "/", "type": "dir", "content": ""},
             {"path": "/home", "type": "dir", "content": ""},
             {"path": "/home/user", "type": "dir", "content": ""},
-            {
-                "path": "/home/user/welcome.txt",
-                "type": "file",
-                "content": base64.b64encode(b"Welcome to VFS!").decode("utf-8"),
-            },
+            {"path": "/home/user/welcome.txt", "type": "file", "content": welcome_b64},
             {"path": "/var", "type": "dir", "content": ""},
             {"path": "/var/log", "type": "dir", "content": ""},
-            {
-                "path": "/var/log/system.log",
-                "type": "file",
-                "content": base64.b64encode(b"System log initialized").decode(
-                    "utf-8"
-                ),
-            },
+            {"path": "/var/log/system.log", "type": "file", "content": log_b64},,
         ]
         with open(self.csv_path, mode="w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=["path", "type", "content"])
@@ -102,8 +96,7 @@ class VFS:
             self.current_dir = target_dir
         else:
             raise ValueError(
-                f"cd: no such file or directory: {path}"
-            )
+                f"cd: no such file or directory: {path}")
 
     def reset_to_default(self):
         """Очищает физическое представление VFS и сбрасывает на базовую VFS."""
@@ -148,7 +141,6 @@ class Emulator(tk.Tk):
         self.output.insert(
             tk.END, f"Путь к стартовому скрипту: {self.script_path}\n"
         )
-        self.output.insert(tk.END, "\n")
 
     def show_prompt(self):
         self.output.insert(tk.END, self.prompt)
@@ -211,11 +203,11 @@ class Emulator(tk.Tk):
             self.output.insert(
                 tk.END,
                 "Доступные команды:\n"
-                "  ls [path]   - вывести содержимое директории\n"
-                "  cd <path>   - сменить директорию\n"
-                "  vfs-init    - сбросить VFS на VFS по умолчанию\n"
-                "  help        - показать справку\n"
-                "  exit        - завершить работу\n",
+                "ls [path]   - вывести содержимое директории\n"
+                "cd <path>   - сменить директорию\n"
+                "vfs-init    - сбросить VFS на VFS по умолчанию\n"
+                "help        - показать справку\n"
+                "exit        - завершить работу\n",
             )
 
         elif command == "cd":
