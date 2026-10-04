@@ -1,0 +1,73 @@
+# Python / Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cextensions
+*.so
+
+# Distribution
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Временные файлы и кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Файлы виртуального окружения
+venv/
+.venv/
+env/
+ENV/
+
+# Настройки IDE и редакторов
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Системные кэши и временные файлы ОС
+.DS_Store
+Thumbs.db
+
+# Локальные базы данных и генерируемые временные VFS/CSV файлы
+*.log
+vfs_temp.csv
